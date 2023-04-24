@@ -10,6 +10,13 @@
 
 
 #define BUFF_SIZE 1024
+#define UNUSED(x) (void)(x)
+
+#define F_MINUS 1
+#define F_SPACE 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_PLUS 16
 
 /**
  * struct print_format - data structure to be used
@@ -18,17 +25,19 @@
  * @func: function pointer to handle formatted values
  */
 
-struct print_fornat
+struct print_format
 {
 	char *format;
-	int(*func)(va_list);
-};
+	int (*func)(va_list);
+}
+;
+
 
 typedef print_format print_ft;
 
 int _printf(const char *format, ...);
-int _formatoutput(const char *formatstring, int p, va_list allist,
-		char buffer[],int flag, int width, int precision,
+int _formatoutput(const char *format, int *p, va_list allist,
+		char buffer[], int flag, int width, int precision,
 		int size);
 
 
@@ -36,7 +45,7 @@ int _formatoutput(const char *formatstring, int p, va_list allist,
 /*functions printing chars, strings and percent according to format */
 int _printstring(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
-int _printchar(va_list variety, char buffer [], int flag,
+int _printchar(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
 int _printpercent(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
@@ -52,10 +61,10 @@ int _hexadecimal_upper(va_list variety, char buffer[],
 		int flag, int width, int precision, int size);
 int _unsigned(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
-int _printbinary(va_list variety, char buffer [], int flag,
+int _printbinary(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
 
-int _printhexa(va_list variety, char map_to[],char buffer[],
+int _printhexa(va_list variety, char map_to[], char buffer[],
 		int flag, char fmt_flag, int flag, int width,
 		int precision, int size);
 
@@ -68,18 +77,21 @@ int string_rot13(va_list variety, char buffer[], int flag,
 /*function printing the address using pointer*/
 int _printpointer(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
+/*function printing non printable characters*/
+int _non_printable(va_list variety, char buffer[], int flag,
+		int width, int precision, int size);
 
 /*formatted output*/
-int _handlechar(char n,char buffer[], int flag, int width,
+int _handlechar(char n, char buffer[], int flag, int width,
 		int precision, int size);
 int _writepointer(char buffer[], int index, int width, int length,
 		int flag, char pad, char add_c, start_pad);
-int _writenum(int index, char buffer[], int flag, int width, 
+int _writenum(int index, char buffer[], int flag, int width,
 		int precision, int length, char pad, char add_c);
 int write_number(int positive, int index, char buffer[], int flag,
 		int width, int precision, int size);
-int unsigned_write(int negative, int index, char buffer[],int flag,
-		int width, int precision,int size);
+int unsigned_write(int negative, int index, char buffer[], int flag,
+		int width, int precision, int size);
 /*extract formatting info from formatted strings*/
 int find_flag(const char *format, int *p);
 int find_precision(const char *format, int *p, va_list allist);
