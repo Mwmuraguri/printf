@@ -31,7 +31,12 @@ struct print_format
 	int (*func)(va_list);
 }
 ;
-
+/**
+ * typedef struct print_format print_ft - data structure
+ *
+ * @format: The format.
+ * @print_ft: The function 
+ */
 
 typedef print_format print_ft;
 
@@ -65,7 +70,7 @@ int _printbinary(va_list variety, char buffer[], int flag,
 		int width, int precision, int size);
 
 int _printhexa(va_list variety, char map_to[], char buffer[],
-		int flag, char fmt_flag, int flag, int width,
+		int flag, char fmt_flag, int width,
 		int precision, int size);
 
 /*function printing a string in reverse*/
@@ -85,7 +90,7 @@ int _non_printable(va_list variety, char buffer[], int flag,
 int _handlechar(char n, char buffer[], int flag, int width,
 		int precision, int size);
 int _writepointer(char buffer[], int index, int width, int length,
-		int flag, char pad, char add_c, start_pad);
+		int flag, char pad, char add_c, int start_pad);
 int _writenum(int index, char buffer[], int flag, int width,
 		int precision, int length, char pad, char add_c);
 int write_number(int positive, int index, char buffer[], int flag,
@@ -100,11 +105,11 @@ int find_size(const char *format, int *p);
 
 /*aiding functions*/
 int canbe_printed(char);
-int _isdigit(char);
+int _isdigit(char d);
 int hexa_encode(char, char[], int);
 
 long int change_sizenum(long int number, int size);
-long int chsnge_sizeunsgned(unsigned long int number, int size);
+long int change_sizeunsgned(unsigned long int number, int size);
 
 #endif
 
