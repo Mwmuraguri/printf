@@ -15,7 +15,7 @@ int find_width(const char *format, int *p, va_list allist)
 	int width = 0;
 	int now_ind;
 
-	for (now_ind = *p + 1; format[now_ind] != '\0'; now_ind)
+	for (now_ind = *p + 1; format[now_ind] != '\0'; now_ind++)
 	{
 		if (_isdigit(format[now_ind]))
 		{
