@@ -19,32 +19,33 @@
 #define F_PLUS 16
 
 /**
- * struct print_format - data structure to be used
+ * struct pr_format - data structure to be used
  *
- * @format: the character format specifier
+ * @stf: the character format specifier
  * @func: function pointer to handle formatted values
  */
 
-struct print_format
+struct stf
 {
-	char *format;
-	int (*func)(va_list);
-}
-;
+	char stf;
+	int (*fn)(va_list, char[], int, int, int, int);
+};
+
 /**
- * typedef struct print_format print_ft - data structure
+ * typedef struct stf stf_t - data structure
  *
- * @format: The format.
- * @print_ft: The function 
+ * @stf: The format.
+ * @stf_t: The function 
  */
 
-typedef print_format print_ft;
+typedef struct stf stf_t;
 
 int _printf(const char *format, ...);
 int _formatoutput(const char *format, int *p, va_list allist,
 		char buffer[], int flag, int width, int precision,
 		int size);
-
+void print_buffer(char buffer [], int *buff_index);
+int _putchar(char c);
 
 
 /*functions printing chars, strings and percent according to format */
