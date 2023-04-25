@@ -105,3 +105,14 @@ int _printpercent(va_list variety, char buffer[], int flag,
 	UNUSED(width);
 	return (write(1, "%%", 1));
 }
+
+/**
+ * _putchar -  function that prints out a character to the stdout
+ * @c: The character to be printed
+ * Return: value of the character being printed
+*/
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
