@@ -19,10 +19,10 @@
 #define F_PLUS 16
 
 /**
- * struct pr_format - data structure to be used
+ * struct stf - data structure to be used
  *
  * @stf: the character format specifier
- * @func: function pointer to handle formatted values
+ * @fn: function pointer to handle formatted values
  */
 
 struct stf
@@ -35,7 +35,7 @@ struct stf
  * typedef struct stf stf_t - data structure
  *
  * @stf: The format.
- * @stf_t: The function 
+ * @stf_t: The function
  */
 
 typedef struct stf stf_t;
@@ -44,7 +44,7 @@ int _printf(const char *format, ...);
 int _formatoutput(const char *format, int *p, va_list allist,
 		char buffer[], int flag, int width, int precision,
 		int size);
-void print_buffer(char buffer [], int *buff_index);
+void print_buffer(char buffer[], int *buff_index);
 int _putchar(char c);
 
 
