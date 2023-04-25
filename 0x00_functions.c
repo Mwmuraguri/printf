@@ -62,7 +62,7 @@ int _printstring(va_list variety, char buffer[], int flag,
 	{
 		length++;
 	}
-	if (precision < length && precision <= 0)
+	if (precision < length && precision >= 0)
 		length = precision;
 	if (width > length)
 	{
