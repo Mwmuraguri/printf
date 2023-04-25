@@ -1,6 +1,5 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_index);
 
 /**
  * _printf - Entry point
