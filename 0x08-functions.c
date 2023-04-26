@@ -34,7 +34,7 @@ int write_number(int is_negative, int index,
 		length, pad, extra_ch));
 }
 /**
- * _write_num - writes no. using buffer
+ * _writenum - writes no. using buffer
  * @index: index
  * @buffer: buffer array
  * @flag: active flags
@@ -57,7 +57,7 @@ int _writenum(int index, char buffer[], int flag, int width,
 		return (0);
 	if (precision == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
 		buffer[index] = pad = ' '; /* padding on width ' ' */
-	if (precision > 0 && precision < length)
+	if (precision > 0 && precision > length)
 		pad = ' ';
 	while (precision > length)
 		buffer[--index] = '0', length++;
@@ -69,9 +69,11 @@ int _writenum(int index, char buffer[], int flag, int width,
 			buffer[x] = pad;
 		buffer[x] = '\0';
 		if (flag & F_MINUS && pad == ' ')
+		{
 			if (add_c)
 				buffer[--index] = add_c;
 			return (write(1, &buffer[index], length) + write(1, &buffer[1], x - 1));
+		}
 		else if (!(flag & F_MINUS) && pad == ' ')
 		{
 			if (add_c)
