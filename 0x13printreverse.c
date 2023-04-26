@@ -16,7 +16,7 @@
 int reverse_string(va_list variety, char buffer[], int flag,
 		int width, int precision, int size)
 {
-	int p;
+	int p = 0;
 	int total = 0;
 	char *string;
 
