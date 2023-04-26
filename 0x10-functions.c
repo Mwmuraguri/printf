@@ -30,13 +30,11 @@ int _formatoutput(const char *stf, int *p, va_list allist,
 		{'u', _unsigned},
 		{'o', _printoctal},
 		{'x', _hexadecimal},
-		{'X', _hexadecimal_upper},
-		{'\0', NULL}
+		{'X', _hexadecimal_upper}, {'\0', NULL}
 	};
 	for (x = 0; stf_tlist[x].stf != '\0'; x++)
 		if (stf[*p] == stf_tlist[x].stf)
 			return (stf_tlist[x].fn(allist, buffer, flag, width, precision, size));
-
 	if (stf_tlist[x].stf == '\0')
 	{
 		if (stf[*p] == '\0')
