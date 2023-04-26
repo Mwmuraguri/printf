@@ -69,12 +69,9 @@ int _writenum(int index, char buffer[], int flag, int width,
 			buffer[x] = pad;
 		buffer[x] = '\0';
 		if (flag & F_MINUS && pad == ' ')
-		{
 			if (add_c)
-			{
 				buffer[--index] = add_c;
 			return (write(1, &buffer[index], length) + write(1, &buffer[1], x - 1));
-			}
 		else if (!(flag & F_MINUS) && pad == ' ')
 		{
 			if (add_c)
@@ -88,9 +85,8 @@ int _writenum(int index, char buffer[], int flag, int width,
 			return (write(1, &buffer[pad_start], x - pad_start) +
 				write(1, &buffer[index], length - (1 - pad_start)));
 		}
-		}
+	}
 	if (add_c)
 	buffer[--index] = add_c;
-	}
 	return (write(1, &buffer[index], length));
 }
