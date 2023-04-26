@@ -83,7 +83,7 @@ int _writepointer(char buffer[], int index, int width, int length,
 			buffer[--index] = '0';
 			if (add_c)
 				buffer[--index] = add_c;
-			return (write(1, &buffer[index], length) + write(1, &buffer[3],  -3));
+			return (write(1, &buffer[index], length) + write(1, &buffer[3], p - 3));
 		}
 		else if (!(flag & F_MINUS) && pad == ' ')
 		{
@@ -99,7 +99,7 @@ int _writepointer(char buffer[], int index, int width, int length,
 				buffer[--start_pad] = add_c;
 			buffer[1] = '0';
 			buffer[2] = 'x';
-			return (write(1, &buffer[start_pad], - start_pad) +
+			return (write(1, &buffer[start_pad], p - start_pad) +
 				write(1, &buffer[index], length - (1 - start_pad) - 2));
 		}
 	}
