@@ -12,14 +12,14 @@
  * Return: no. of char printed
  */
 int _printbinary(va_list variety, char buffer[],
-	int flags, int width, int precision, int size)
+	int flag, int width, int precision, int size)
 {
 	unsigned int x, y, z, add;
 	unsigned int b[32];
 	int count;
 
 	UNUSED(buffer);
-	UNUSED(flags);
+	UNUSED(flag);
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
